@@ -288,7 +288,7 @@ const EXTRA_FOODS=[
   foodEntry('egg_yolk','Yema de huevo cocida',322,15.9,3.6,26.5,['egg yolk','yolk'],17,'cooked egg yolk'),
 ];
 EXTRA_FOODS.push(
-  foodEntry('tacos_arrachera','Tacos de arrachera',198,14.4,16.2,9.6,['taco de arrachera','tacos arrachera','arrachera taco','steak tacos'],222,'steak tacos'),
+  foodEntry('tacos_arrachera','Tacos de arrachera',198,14.4,16.2,9.1,['taco de arrachera','tacos arrachera','arrachera taco','steak tacos'],222,'steak tacos'),
   foodEntry('tacos_birria','Tacos de birria',220,13,19,10,['taco de birria','birria tacos','beef birria tacos'],225,'birria tacos'),
   foodEntry('tacos_barbacoa','Tacos de barbacoa',205,14,20,7.5,['taco de barbacoa','barbacoa tacos','beef barbacoa tacos'],210,'barbacoa tacos'),
   foodEntry('tacos_pescado','Tacos de pescado',190,11,22,7,['taco de pescado','fish tacos','fish taco'],210,'fish tacos'),
