@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f5ee" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="description" content="Registro personal de comidas con estimaciones visuales editables." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css?v=9" />
+  <title>Comida Clara</title>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Comida Clara, inicio"><span class="brand-icon">cc</span><span>comida clara</span></a>
+      <button id="installButton" class="icon-button" hidden aria-label="Instalar app" title="Instalar">＋</button>
+    </header>
+
+    <section class="hero" id="inicio">
+      <p class="eyebrow">TU REGISTRO DE HOY</p>
+      <div class="hero-row"><div><h1>Come con<br /><em>más claridad.</em></h1><p class="subhead">Una foto para empezar. Tú ajustas los detalles.</p></div><div class="date-pill" id="todayDate"></div></div>
+      <div class="daily-card">
+        <div class="daily-head"><span>Estimado de hoy</span><span id="mealCount">0 comidas</span></div>
+        <div class="daily-cal"><strong id="dailyCalories">0</strong><span>kcal</span></div>
+        <div class="macro-strip"><div><span class="macro-dot protein"></span><span>Proteína</span><b id="dailyProtein">0 g</b></div><div><span class="macro-dot carbs"></span><span>Carbohidratos</span><b id="dailyCarbs">0 g</b></div><div><span class="macro-dot fat"></span><span>Grasas</span><b id="dailyFat">0 g</b></div></div>
+      </div>
+      <div class="protein-log" aria-labelledby="proteinLogTitle">
+        <div class="protein-log-heading"><div><strong id="proteinLogTitle">Mi shake de proteína</strong><span>Registro directo, sin foto</span></div><span class="protein-badge">24 g / scoop</span></div>
+        <div class="protein-log-fields">
+          <label>Scoops<input id="proteinScoops" type="number" min="0.5" step="0.5" value="1" inputmode="decimal" /></label>
+          <label>Proteína por scoop (g)<input id="proteinPerScoop" type="number" min="0" step="0.1" value="24" inputmode="decimal" /></label>
+          <label>Calorías por scoop<input id="proteinKcalPerScoop" type="number" min="0" step="1" placeholder="Auto" inputmode="decimal" /></label>
+        </div>
+        <details class="protein-extra"><summary>Agregar carbohidratos o grasa de la etiqueta</summary><div class="protein-log-fields extra-fields"><label>Carbohidratos / scoop (g)<input id="proteinCarbsPerScoop" type="number" min="0" step="0.1" value="0" inputmode="decimal" /></label><label>Grasa / scoop (g)<input id="proteinFatPerScoop" type="number" min="0" step="0.1" value="0" inputmode="decimal" /></label></div></details>
+        <button id="logProtein" class="protein-log-button">Añadir shake al día <span>＋</span></button>
+        <p id="proteinLogFeedback" class="protein-log-feedback" aria-live="polite" hidden></p>
+        <p class="protein-log-note">Un scoop equivale inicialmente a 24 g de proteína; puedes usar medios scoops. Ajusta los valores con la etiqueta. Si dejas kcal vacío, se estiman desde los macros. Este registro es para el polvo; añade leche o fruta aparte.</p>
+      </div>
+    </section>
+
+    <section class="capture-section" aria-labelledby="captureTitle">
+      <div class="section-heading"><div><p class="eyebrow">REGISTRA UNA COMIDA</p><h2 id="captureTitle">¿Qué hay en tu plato?</h2></div><span class="step-mark">01 / 02</span></div>
+      <label class="photo-drop" id="photoDrop">
+        <input id="photoInput" type="file" accept="image/*" capture="environment" />
+        <div class="camera-mark" aria-hidden="true">↗</div>
+        <div class="photo-copy"><strong>Toma una foto o elige una</strong><span>La imagen se analiza en tu navegador</span></div>
+        <span class="photo-arrow">＋</span>
+        <img id="photoPreview" alt="Vista previa de la comida" hidden />
+      </label>
+      <div id="analysisStatus" class="status-line" aria-live="polite"><span class="status-dot"></span><span>El análisis visual se carga al elegir una foto.</span></div>
+      <div class="privacy-note"><span>◉</span> Tu foto se procesa en este dispositivo y no se sube a un servidor.</div>
+    </section>
+
+    <section class="results-section" id="resultsSection" hidden aria-labelledby="resultsTitle">
+      <div class="section-heading"><div><p class="eyebrow">REVISA Y AJUSTA</p><h2 id="resultsTitle">Estimación del plato</h2></div><span class="step-mark">02 / 02</span></div>
+      <p class="hint">Food-101 propone un platillo; puedes probar una búsqueda visual más amplia o buscar cualquier ingrediente. Confirma el resultado y revisa preparación y porción.</p>
+      <div id="suggestions" class="suggestions" aria-label="Sugerencias de alimentos"></div>
+      <button id="broadRecognition" class="text-button small broad-recognition" hidden>Probar reconocimiento alternativo · descarga adicional (~126 MB)</button>
+      <div class="quick-correction"><span>¿No coincide?</span><div id="quickFoods" class="quick-foods"></div></div>
+      <div id="recipeControls" class="recipe-controls" hidden><label for="servingsInput">Cantidad de tacos</label><input id="servingsInput" type="number" min="1" max="20" step="1" value="4" /><span>La receta sugerida es editable por ingrediente.</span></div>
+      <div class="food-editor">
+        <label class="field-label" for="foodSearch">Alimento</label>
+        <div class="search-wrap"><span>⌕</span><input id="foodSearch" type="search" placeholder="Busca un alimento o ingrediente…" autocomplete="off" /><div id="searchResults" class="search-results" hidden></div></div>
+        <p class="portion-hint">Cuando aplica, puedes anotar piezas, huevos, claras, tazas o cucharadas. Los gramos equivalentes se actualizan junto con la cantidad.</p>
+        <div id="foodItems" class="food-items"></div>
+      </div>
+      <div class="nutrition-card">
+        <div class="nutrition-top"><span>Estimado de esta comida</span><span class="approx">≈</span></div>
+        <div class="meal-cal"><strong id="mealCalories">0</strong><span>kcal</span></div>
+        <div class="nutrition-macros"><div><span>Proteína</span><b id="mealProtein">0 g</b></div><div><span>Carbohidratos</span><b id="mealCarbs">0 g</b></div><div><span>Grasas</span><b id="mealFat">0 g</b></div></div>
+      </div>
+      <div class="estimate-caveat"><span>✳</span><p>La foto no pesa los ingredientes. Los ingredientes simples usan referencias por 100 g; los platillos preparados son promedios y cambian mucho según receta, aceite y tamaño. Corrige cada ingrediente o pesa la porción si buscas más precisión.</p></div>
+      <div class="action-row"><button id="saveMeal" class="primary-button">Guardar comida <span>→</span></button><button id="cancelMeal" class="text-button">Cancelar</button></div>
+    </section>
+
+    <section class="history-section" aria-labelledby="historyTitle">
+      <div class="section-heading"><div><p class="eyebrow">TU DÍA</p><h2 id="historyTitle">Comidas recientes</h2></div><div><button id="exportExamples" class="text-button small">Exportar ejemplos</button><button id="clearDay" class="text-button small">Limpiar día</button></div></div>
+      <div id="mealHistory" class="meal-history"></div>
+    </section>
+    <footer><span>Estimaciones orientativas, no mediciones exactas.</span><button id="aboutButton" class="text-button small">Cómo funciona</button></footer>
+  </main>
+  <dialog id="aboutDialog"><div class="dialog-content"><button id="closeDialog" class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow">ACERCA DE</p><h2>Estimación, con tus ajustes.</h2><p>Food-101 propone una de 101 categorías de platillos. El reconocedor alternativo usa CLIP y compara la foto con un catálogo más amplio; se descarga solo si lo pides y requiere internet la primera vez. Ambos procesan la foto en el dispositivo después de descargar el modelo. Ninguno puede separar todos los ingredientes ni medir su peso con precisión desde una sola imagen.</p><p>Los ingredientes simples se normalizan a 100 g con referencias de composición; los platillos compuestos usan promedios orientativos porque la receta cambia sus macros. Tus correcciones se guardan en este navegador y se pueden exportar; exportarlas no reentrena automáticamente un modelo.</p><button id="closeDialogAction" class="primary-button">Entendido</button></div></dialog>
+  <script type="module" src="app.js?v=9"></script>
+</body>
+</html>

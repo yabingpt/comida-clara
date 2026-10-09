@@ -1,0 +1,11 @@
+{
+  "name": "Comida Clara",
+  "short_name": "Comida Clara",
+  "description": "Registro personal de comida con estimaciones editables",
+  "lang": "es-MX",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f6f5ee",
+  "theme_color": "#f6f5ee",
+  "icons": []
+}
