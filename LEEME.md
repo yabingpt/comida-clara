@@ -5,7 +5,7 @@ Prototipo personal instalable en iPhone como app web (PWA). Interfaz y ayuda en 
 ## Qué hace este prototipo
 
 - Permite tomar una foto o escogerla desde la biblioteca.
-- Clasifica el platillo en el navegador con Food-101. Si las sugerencias no coinciden, puedes lanzar CLIP opcionalmente: compara la foto con un catálogo más amplio de platos e ingredientes de varias cocinas. La descarga cuantizada adicional ronda 126 MB; solo ocurre si pulsas el botón.
+- Al elegir una foto, CLIP propone automáticamente opciones de platos e ingredientes de distintas cocinas. La primera vez descarga unos 126 MB y requiere internet; después compara la imagen en el navegador del iPhone. Food-101 queda como alternativa ligera si CLIP falla o quieres compararlo.
 - Busca más de 150 ingredientes y platos en español e inglés, con nombres normalizados para que funcionen búsquedas sin acentos.
 - Sugiere una porción inicial editable basada en una ración típica. Ninguno de los modelos **mide los gramos desde la imagen**; pesa la porción o edita cada ingrediente si quieres acercarte más.
 - Permite registrar alimentos comunes con unidades de cocina y su conversión aproximada a gramos: huevos, claras y yemas por pieza; fruta, tortillas y rebanadas por pieza; arroz y verduras por taza; aceite y mantequilla por cucharada/cucharadita. Puedes corregir la cantidad o los gramos y ambos campos se sincronizan.
@@ -33,7 +33,7 @@ Safari necesita servir la app desde una dirección HTTPS para que pueda agregars
 2. Publica la carpeta `Comida Clara` como sitio estático gratuito (por ejemplo, en GitHub Pages). Sube los archivos de esta carpeta manteniendo sus nombres y estructura.
 3. Abre la URL HTTPS publicada en Safari en el iPhone.
 4. Pulsa **Compartir → Agregar a pantalla de inicio**.
-5. Con internet, toma una foto y espera a que se descargue Food-101 la primera vez. La búsqueda CLIP más amplia es opcional y descarga otro modelo la primera vez que la pulses. Después, las fotos se analizan en el navegador del iPhone.
+5. Toma una foto o selecciónala desde Fotos. La primera vez, CLIP descarga automáticamente su modelo (unos 126 MB); requiere internet. En usos posteriores el navegador puede reutilizar lo descargado. El análisis se ejecuta en el iPhone y la foto no se sube. Food-101 queda como alternativa ligera.
 
 También puedes abrir `index.html` en una computadora para revisar la interfaz, pero el modo archivo no sirve para instalarla como PWA.
 

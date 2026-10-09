@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="description" content="Registro personal de comidas con estimaciones visuales editables." />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
   <title>Comida Clara</title>
 </head>
 <body>
@@ -43,9 +43,9 @@
     <section class="capture-section" aria-labelledby="captureTitle">
       <div class="section-heading"><div><p class="eyebrow">REGISTRA UNA COMIDA</p><h2 id="captureTitle">¿Qué hay en tu plato?</h2></div><span class="step-mark">01 / 02</span></div>
       <label class="photo-drop" id="photoDrop">
-        <input id="photoInput" type="file" accept="image/*" capture="environment" />
+        <input id="photoInput" type="file" accept="image/*" />
         <div class="camera-mark" aria-hidden="true">↗</div>
-        <div class="photo-copy"><strong>Toma una foto o elige una</strong><span>La imagen se analiza en tu navegador</span></div>
+        <div class="photo-copy"><strong>Toma una foto o elige una</strong><span>Puedes tomarla ahora o elegirla de Fotos</span></div>
         <span class="photo-arrow">＋</span>
         <img id="photoPreview" alt="Vista previa de la comida" hidden />
       </label>
@@ -55,9 +55,9 @@
 
     <section class="results-section" id="resultsSection" hidden aria-labelledby="resultsTitle">
       <div class="section-heading"><div><p class="eyebrow">REVISA Y AJUSTA</p><h2 id="resultsTitle">Estimación del plato</h2></div><span class="step-mark">02 / 02</span></div>
-      <p class="hint">Food-101 propone un platillo; puedes probar una búsqueda visual más amplia o buscar cualquier ingrediente. Confirma el resultado y revisa preparación y porción.</p>
+      <p class="hint">CLIP propone opciones de alimentos automáticamente; confirma el resultado y revisa ingredientes, preparación y porción. Si falla, puedes probar Food-101.</p>
       <div id="suggestions" class="suggestions" aria-label="Sugerencias de alimentos"></div>
-      <button id="broadRecognition" class="text-button small broad-recognition" hidden>Probar reconocimiento alternativo · descarga adicional (~126 MB)</button>
+      <button id="broadRecognition" class="text-button small broad-recognition" hidden>Probar alternativa ligera · Food-101</button>
       <div class="quick-correction"><span>¿No coincide?</span><div id="quickFoods" class="quick-foods"></div></div>
       <div id="recipeControls" class="recipe-controls" hidden><label for="servingsInput">Cantidad de tacos</label><input id="servingsInput" type="number" min="1" max="20" step="1" value="4" /><span>La receta sugerida es editable por ingrediente.</span></div>
       <div class="food-editor">
@@ -81,7 +81,7 @@
     </section>
     <footer><span>Estimaciones orientativas, no mediciones exactas.</span><button id="aboutButton" class="text-button small">Cómo funciona</button></footer>
   </main>
-  <dialog id="aboutDialog"><div class="dialog-content"><button id="closeDialog" class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow">ACERCA DE</p><h2>Estimación, con tus ajustes.</h2><p>Food-101 propone una de 101 categorías de platillos. El reconocedor alternativo usa CLIP y compara la foto con un catálogo más amplio; se descarga solo si lo pides y requiere internet la primera vez. Ambos procesan la foto en el dispositivo después de descargar el modelo. Ninguno puede separar todos los ingredientes ni medir su peso con precisión desde una sola imagen.</p><p>Los ingredientes simples se normalizan a 100 g con referencias de composición; los platillos compuestos usan promedios orientativos porque la receta cambia sus macros. Tus correcciones se guardan en este navegador y se pueden exportar; exportarlas no reentrena automáticamente un modelo.</p><button id="closeDialogAction" class="primary-button">Entendido</button></div></dialog>
-  <script type="module" src="app.js?v=9"></script>
+  <dialog id="aboutDialog"><div class="dialog-content"><button id="closeDialog" class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow">ACERCA DE</p><h2>Estimación, con tus ajustes.</h2><p>CLIP se carga automáticamente al analizar la primera foto: descarga el modelo (aprox. 126 MB), requiere internet esa primera vez y después compara la imagen en este iPhone. La app prueba Food-101 si CLIP no carga; puedes activarlo manualmente como alternativa ligera. La foto no se sube a un servidor. Ningún modelo puede separar todos los ingredientes ni medir su peso con precisión desde una sola imagen.</p><p>Los ingredientes simples se normalizan a 100 g con referencias de composición; los platillos compuestos usan promedios orientativos porque la receta cambia sus macros. Tus correcciones se guardan en este navegador y se pueden exportar; exportarlas no reentrena automáticamente un modelo.</p><button id="closeDialogAction" class="primary-button">Entendido</button></div></dialog>
+  <script type="module" src="app.js?v=10"></script>
 </body>
 </html>
