@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="description" content="Registro personal de alimentos y macros editables." />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <link rel="stylesheet" href="styles.css?v=16" />
   <title>Comida Clara</title>
 </head>
 <body>
@@ -26,6 +26,15 @@
         <div class="daily-cal"><strong id="dailyCalories">0</strong><span>kcal</span></div>
         <div class="macro-strip"><div><span class="macro-dot protein"></span><span>Proteína</span><b id="dailyProtein">0 g</b></div><div><span class="macro-dot carbs"></span><span>Carbohidratos</span><b id="dailyCarbs">0 g</b></div><div><span class="macro-dot fat"></span><span>Grasas</span><b id="dailyFat">0 g</b></div></div>
       </div>
+      <section class="daily-goals" aria-labelledby="dailyGoalsTitle">
+        <div class="daily-goals-heading"><div><strong id="dailyGoalsTitle">Mis objetivos del día</strong><small>Solo como referencia; no se comparan con lo consumido.</small></div><span>🎯</span></div>
+        <div class="daily-goals-grid">
+          <label>Calorías (kcal)<input id="goalCalories" type="number" min="0" step="10" placeholder="kcal" inputmode="numeric" /></label>
+          <label>Proteína (g)<input id="goalProtein" type="number" min="0" step="1" placeholder="g" inputmode="decimal" /></label>
+          <label>Carbohidratos (g)<input id="goalCarbs" type="number" min="0" step="1" placeholder="g" inputmode="decimal" /></label>
+          <label>Grasas (g)<input id="goalFat" type="number" min="0" step="1" placeholder="g" inputmode="decimal" /></label>
+        </div>
+      </section>
       <div class="protein-log" aria-labelledby="proteinLogTitle">
         <div class="protein-log-heading"><div><strong id="proteinLogTitle">Mi shake de proteína</strong><span>Registro rápido, editable</span></div><span class="protein-badge">24 g / scoop</span></div>
         <div class="protein-log-fields">
@@ -46,8 +55,8 @@
       <div class="meal-type-picker" role="group" aria-label="Tipo de comida">
         <button type="button" class="meal-type active" data-meal-type="desayuno">🌅 Desayuno</button><button type="button" class="meal-type" data-meal-type="comida">☀️ Comida</button><button type="button" class="meal-type" data-meal-type="cena">🌙 Cena</button><button type="button" class="meal-type" data-meal-type="colacion">🍎 Colación</button>
       </div>
-      <div class="meal-shortcuts" aria-label="Platos rápidos"><span>Platos rápidos</span><button type="button" data-taco="pastor">🌮 Pastor</button><button type="button" data-taco="arrachera">🥩 Arrachera</button><button type="button" data-taco="pollo">🍗 Pollo</button><button type="button" data-taco="carnitas">🐖 Carnitas</button></div>
-      <div id="recipeControls" class="recipe-controls" hidden><label id="servingsLabel" for="servingsInput">Cantidad de tacos</label><input id="servingsInput" type="number" min="1" max="20" step="1" value="3" inputmode="numeric" /><span>Se actualiza el desglose por ingrediente.</span></div>
+      <div class="meal-shortcuts" aria-label="Platos rápidos"><span>Platos rápidos</span><button type="button" data-taco="pastor">🌮 Pastor</button><button type="button" data-taco="arrachera">🥩 Arrachera</button><button type="button" data-taco="pollo">🍗 Pollo</button><button type="button" data-taco="carnitas">🐖 Carnitas</button><button type="button" data-recipe="enchiladas">🫔 Enchiladas</button></div>
+      <div id="recipeControls" class="recipe-controls" hidden><label id="servingsLabel" for="servingsInput">Porciones</label><input id="servingsInput" type="number" min="1" max="20" step="1" value="3" inputmode="numeric" /><span>Se actualiza el desglose por ingrediente.</span></div>
       <label class="field-label" for="foodSearch">Busca entre ingredientes y platos</label>
       <div class="search-wrap food-search-wrap"><span>⌕</span><input id="foodSearch" type="search" placeholder="Ej. huevos, arroz, salmón, ramen, curry…" autocomplete="off" /><div id="searchResults" class="search-results" hidden></div></div>
       <div class="catalog-heading"><span>Tu colección</span><span id="catalogCount"></span></div>
@@ -73,7 +82,7 @@
     </section>
     <footer><span>Estimaciones orientativas, no mediciones exactas.</span><button id="aboutButton" class="text-button small">Cómo funciona</button></footer>
   </main>
-  <dialog id="aboutDialog"><div class="dialog-content"><button id="closeDialog" class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow">ACERCA DE</p><h2>Estimación, con tus ajustes.</h2><p>Comida Clara ya no usa cámara ni reconocimiento visual. El catálogo integrado incluye ingredientes y platos de varias cocinas, con macros por 100 g. Tú eliges el alimento y ajustas piezas, porciones o gramos; cada ingrediente muestra su aporte por separado.</p><p>Los valores son referencias promedio de composición (incluida USDA FoodData Central cuando corresponde). En platos compuestos, marcas y preparaciones, la receta cambia los macros. Tus registros se guardan en este navegador y no se suben a un servidor.</p><button id="closeDialogAction" class="primary-button">Entendido</button></div></dialog>
-  <script type="module" src="app.js?v=13"></script>
+  <dialog id="aboutDialog"><div class="dialog-content"><button id="closeDialog" class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow">ACERCA DE</p><h2>Estimación, con tus ajustes.</h2><p>Comida Clara ya no usa cámara ni reconocimiento visual. El catálogo integrado incluye ingredientes y platos de varias cocinas, con macros por 100 g. Tú eliges el alimento y ajustas piezas, porciones o gramos; cada ingrediente muestra su aporte por separado. También puedes guardar tus objetivos diarios de calorías y macros como referencia, sin compararlos con tu consumo. Enchiladas, chilaquiles, quesadillas y burritos tienen plantillas de ingredientes ajustables.</p><p>Los valores son referencias promedio de composición (incluida USDA FoodData Central cuando corresponde). En platos compuestos, marcas y preparaciones, la receta cambia los macros. Tus registros se guardan en este navegador y no se suben a un servidor.</p><button id="closeDialogAction" class="primary-button">Entendido</button></div></dialog>
+  <script type="module" src="app.js?v=16"></script>
 </body>
 </html>

@@ -10,9 +10,9 @@ Registro personal de alimentos y macros, optimizado para iPhone. No necesita cue
 4. Ajusta huevos, claras, piezas, tazas u otras unidades cuando estén disponibles, o corrige directamente los gramos.
 5. Revisa calorías, proteína, carbohidratos y grasa por ingrediente y en el total. Después guarda la comida.
 
-Cada opción muestra sus valores de referencia por 100 g. La lista incluye alimentos comunes y platos de distintas cocinas. Si falta una marca o receta, añade los datos de una porción desde su etiqueta; la app los normaliza a 100 g y los guarda en Favoritos. Los tacos al pastor, arrachera, pollo y carnitas también aparecen en el buscador y crean un desglose editable de tortilla, carne y acompañamientos.
+Debajo del resumen de hoy puedes guardar tus objetivos de calorías y macros; se muestran como referencia y no se comparan automáticamente con lo consumido. Tus objetivos se guardan en este navegador. Cada opción muestra sus valores de referencia por 100 g. La lista incluye alimentos comunes y platos de distintas cocinas. Si falta una marca o receta, añade los datos de una porción desde su etiqueta; la app los normaliza a 100 g y los guarda en Favoritos. Los tacos al pastor, arrachera, pollo y carnitas también aparecen en el buscador y crean un desglose editable de tortilla, carne y acompañamientos.
 
-El shake permite anotar scoops completos o medios, proteína por scoop y los macros de la etiqueta. El diario agrupa comidas con su tipo y emoji, y permite desplegar los macros de cada alimento. **Exportar mi registro** descarga un respaldo JSON con el diario, tus alimentos propios y las preferencias del shake.
+Enchiladas, chilaquiles, quesadillas y burritos pueden abrir recetas editables por número de piezas o porciones y por ingrediente; ajusta pollo, tortillas, salsa, queso y otros componentes según tu preparación. El catálogo también incluye conchas, cuernitos rellenos, croissants, roles de canela, orejas, pan de muerto, muffins y empanadas dulces. El shake permite anotar scoops completos o medios, proteína por scoop y los macros de la etiqueta. El diario agrupa comidas con su tipo y emoji, y permite desplegar los macros de cada alimento. **Exportar mi registro** descarga un respaldo JSON con el diario, tus alimentos propios, objetivos diarios y preferencias del shake.
 
 ## Qué significan los números
 
