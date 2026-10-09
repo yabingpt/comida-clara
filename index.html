@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="description" content="Registro personal de alimentos y macros editables." />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
   <title>Comida Clara</title>
 </head>
 <body>
@@ -50,8 +50,8 @@
       <div id="recipeControls" class="recipe-controls" hidden><label id="servingsLabel" for="servingsInput">Cantidad de tacos</label><input id="servingsInput" type="number" min="1" max="20" step="1" value="3" inputmode="numeric" /><span>Se actualiza el desglose por ingrediente.</span></div>
       <label class="field-label" for="foodSearch">Busca entre ingredientes y platos</label>
       <div class="search-wrap food-search-wrap"><span>⌕</span><input id="foodSearch" type="search" placeholder="Ej. huevos, arroz, salmón, ramen, curry…" autocomplete="off" /><div id="searchResults" class="search-results" hidden></div></div>
-      <div class="catalog-heading"><span>Explorar por categoría</span><span id="catalogCount"></span></div>
-      <div id="foodCategories" class="food-categories" aria-label="Categorías de alimentos"></div>
+      <div class="catalog-heading"><span>Tu colección</span><span id="catalogCount"></span></div>
+      <div id="foodViews" class="food-views" role="group" aria-label="Vista del catálogo"></div>
       <div id="foodBrowser" class="food-browser"></div>
       <details class="custom-food-panel"><summary>🏷️ ¿Falta algo? Añade un alimento desde su etiqueta</summary><form id="customFoodForm" class="custom-food-form"><label>Nombre<input id="customFoodName" type="text" maxlength="70" placeholder="Ej. Yogur marca X" required /></label><label>Gramos por porción<input id="customFoodServing" type="number" min="1" step="1" placeholder="170" required inputmode="decimal" /></label><label>Calorías por porción<input id="customFoodKcal" type="number" min="0" step="0.1" required inputmode="decimal" /></label><label>Proteína (g)<input id="customFoodProtein" type="number" min="0" step="0.1" required inputmode="decimal" /></label><label>Carbohidratos (g)<input id="customFoodCarbs" type="number" min="0" step="0.1" required inputmode="decimal" /></label><label>Grasa (g)<input id="customFoodFat" type="number" min="0" step="0.1" required inputmode="decimal" /></label><button class="custom-food-add primary-button" type="submit">Guardar y añadir alimento <span>＋</span></button></form><p id="customFoodFeedback" class="custom-food-feedback" hidden></p><small>Escribe los valores de una porción de la etiqueta y su peso. Se convierten automáticamente a valores por 100 g y quedan guardados solo en este navegador.</small></details>
       <section class="draft-meal" aria-labelledby="draftTitle">
@@ -64,7 +64,7 @@
         </div>
         <p class="estimate-caveat"><span>✳</span><span>Los macros son por ingrediente y porción. Elige el estado correcto (crudo o cocido) y ajusta gramos o piezas; aceite, salsas y marcas cambian el resultado.</span></p>
         <button id="saveMeal" class="primary-button" type="button" disabled>Guardar comida en mi día <span>→</span></button>
-        <p id="analysisStatus" class="status-line" aria-live="polite"><span class="status-dot"></span><span>Elige una categoría o busca un alimento para comenzar.</span></p>
+      <p id="analysisStatus" class="status-line" aria-live="polite"><span class="status-dot"></span><span>Busca un plato o ingrediente, o elige uno de tus favoritos.</span></p>
       </section>
     </section>
     <section class="history-section" aria-labelledby="historyTitle">
@@ -74,6 +74,6 @@
     <footer><span>Estimaciones orientativas, no mediciones exactas.</span><button id="aboutButton" class="text-button small">Cómo funciona</button></footer>
   </main>
   <dialog id="aboutDialog"><div class="dialog-content"><button id="closeDialog" class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow">ACERCA DE</p><h2>Estimación, con tus ajustes.</h2><p>Comida Clara ya no usa cámara ni reconocimiento visual. El catálogo integrado incluye ingredientes y platos de varias cocinas, con macros por 100 g. Tú eliges el alimento y ajustas piezas, porciones o gramos; cada ingrediente muestra su aporte por separado.</p><p>Los valores son referencias promedio de composición (incluida USDA FoodData Central cuando corresponde). En platos compuestos, marcas y preparaciones, la receta cambia los macros. Tus registros se guardan en este navegador y no se suben a un servidor.</p><button id="closeDialogAction" class="primary-button">Entendido</button></div></dialog>
-  <script type="module" src="app.js?v=12"></script>
+  <script type="module" src="app.js?v=13"></script>
 </body>
 </html>

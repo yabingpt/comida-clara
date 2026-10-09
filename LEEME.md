@@ -5,12 +5,12 @@ Registro personal de alimentos y macros, optimizado para iPhone. No necesita cue
 ## Registrar una comida
 
 1. Elige **Desayuno**, **Comida**, **Cena** o **Colación**.
-2. Explora una categoría o busca el nombre en español o inglés.
+2. Busca el nombre en español o inglés. Cambia entre **Favoritos** y **Todo el catálogo**; toca ☆ para guardar platos e ingredientes frecuentes.
 3. Toca cada ingrediente o plato para agregarlo al desglose.
 4. Ajusta huevos, claras, piezas, tazas u otras unidades cuando estén disponibles, o corrige directamente los gramos.
 5. Revisa calorías, proteína, carbohidratos y grasa por ingrediente y en el total. Después guarda la comida.
 
-Cada opción muestra sus valores de referencia por 100 g. La lista incluye alimentos comunes y platos de distintas cocinas. Si falta una marca o receta, añade los datos de una porción desde su etiqueta; la app los normaliza a 100 g y los guarda en “Mis alimentos”. Los atajos de tacos al pastor, arrachera, pollo y carnitas crean un desglose editable de tortilla, carne y acompañamientos.
+Cada opción muestra sus valores de referencia por 100 g. La lista incluye alimentos comunes y platos de distintas cocinas. Si falta una marca o receta, añade los datos de una porción desde su etiqueta; la app los normaliza a 100 g y los guarda en Favoritos. Los tacos al pastor, arrachera, pollo y carnitas también aparecen en el buscador y crean un desglose editable de tortilla, carne y acompañamientos.
 
 El shake permite anotar scoops completos o medios, proteína por scoop y los macros de la etiqueta. El diario agrupa comidas con su tipo y emoji, y permite desplegar los macros de cada alimento. **Exportar mi registro** descarga un respaldo JSON con el diario, tus alimentos propios y las preferencias del shake.
 
