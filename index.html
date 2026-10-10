@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="description" content="Registro personal de alimentos y macros editables." />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css?v=23" />
+  <link rel="stylesheet" href="styles.css?v=24" />
   <title>AY FUEL</title>
 </head>
 <body>
@@ -84,7 +84,7 @@
     <section class="app-page" id="page-stats" data-page="stats" hidden>
       <div class="page-heading"><p class="eyebrow">TU PROGRESO</p><h1>Metas</h1><p id="statsPeriod">Cumplimiento de hoy y de los últimos siete días.</p></div>
       <section class="stats-panel goal-today-panel"><div class="panel-heading"><div><p class="eyebrow">HOY</p><h2>Avance de tus objetivos</h2></div><span id="todayGoalSummary">0 de 4 metas</span></div><div id="todayGoalRows" class="goal-progress-list"></div></section>
-      <div class="stats-summary-grid goal-summary-grid"><article class="stat-card"><span>Días dentro de tus metas</span><strong id="weeklyGoalDays">0 de 0</strong><small id="weeklyGoalHint">Registra un día y configura objetivos en Perfil</small></article><article class="stat-card"><span>Comidas registradas</span><strong id="statsMealCount">0</strong><small>en los últimos siete días</small></article></div>
+      <div class="stats-summary-grid goal-summary-grid"><article class="stat-card"><span>Días con registro</span><strong id="loggedDayCount">0</strong><small id="weeklyGoalHint">Registra comidas para ver tu resumen semanal</small></article><article class="stat-card"><span>Comidas registradas</span><strong id="statsMealCount">0</strong><small>en los últimos siete días</small></article></div>
       <section class="stats-panel"><div class="panel-heading"><div><p class="eyebrow">ÚLTIMA SEMANA</p><h2>Consumo frente a objetivos</h2></div><span>promedio diario</span></div><div id="weeklyGoalRows" class="goal-progress-list"></div></section>
       <p class="stats-note">Un día cuenta dentro de tus metas cuando sus valores quedan cerca del objetivo configurado. Los días guardados desde esta versión conservan sus objetivos del día; los anteriores se comparan con tus objetivos actuales.</p>
       <section class="stats-panel archive-panel"><div class="panel-heading"><div><p class="eyebrow">TU DIARIO</p><h2>Historial y cumplimiento</h2></div><span>por fecha</span></div><div id="statsArchive" class="stats-archive"></div></section>
@@ -112,6 +112,6 @@
     </nav>
   </main>
   <dialog id="aboutDialog"><div class="dialog-content"><button id="closeDialog" class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow">ACERCA DE</p><h2>Estimación, con tus ajustes.</h2><p>AY FUEL no usa cámara ni reconocimiento visual. El catálogo ahora cubre alimentos mexicanos y de otras cocinas. Los platillos compuestos abren una receta guía desglosada: puedes cambiar cantidades por ingrediente, quitar ingredientes o añadir otros. La cantidad inicial es una porción promedio editable, porque cada preparación cambia.</p><p>Las porciones se orientan por grupos y equivalencias del <a href="https://fisiologia.facmed.unam.mx/wp-content/uploads/2019/02/2-Valoraci%C3%B3n-nutricional-Anexos.pdf" target="_blank" rel="noreferrer">SMAE (referencia UNAM)</a>. Para la composición se consultan tablas mexicanas del <a href="https://www.incmnsz.mx/2019/TABLAS_ALIMENTOS.pdf" target="_blank" rel="noreferrer">INCMNSZ</a> y <a href="https://fdc.nal.usda.gov/data-documentation/" target="_blank" rel="noreferrer">USDA FoodData Central</a>; los valores de recetas son cálculos aproximados de sus ingredientes, no valores oficiales universales del platillo. Tus registros se guardan en este navegador.</p><button id="closeDialogAction" class="primary-button">Entendido</button></div></dialog>
-  <script type="module" src="app.js?v=23"></script>
+  <script type="module" src="app.js?v=24"></script>
 </body>
 </html>
