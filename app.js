@@ -424,7 +424,8 @@ EXTRA_FOODS.push(
   foodEntry('clam','Almeja cocida',148,25.6,5.1,2,['clam','almeja'],40,'cooked clam'),
   foodEntry('sprinkles','Chispas de azúcar',400,0,100,0,['sprinkles','chispas de colores'],3,'sugar sprinkles'),
   foodEntry('tuna','Atún fresco cocido',132,28,0,1,['fresh tuna','atún fresco'],100,'cooked fresh tuna'),
-  foodEntry('vinegar','Vinagre',18,0,0,.1,['vinegar','vinagre'],5,'vinegar')
+  foodEntry('vinegar','Vinagre',18,0,0,.1,['vinegar','vinagre'],5,'vinegar'),
+  foodEntry('gelatin','Grenetina sin sabor',335,85,0,0,['gelatin','grenetina'],2,'gelatin powder')
 );
 for(const food of EXTRA_FOODS){const old=FOOD_DATA.findIndex(item=>item.id===food.id);if(old<0)FOOD_DATA.push(food);else Object.assign(FOOD_DATA[old],food)}
 const PORTION_PROFILES={
@@ -519,7 +520,7 @@ const addRecipe=(id,name,items,count=1)=>{RECIPE_CONFIGS[id]={name,label:`Porcio
  ['pad_thai','Pad thai de camarón',[['rice_noodles',130],['shrimp',65],['egg_raw',25],['peanuts',10],['soy_sauce',10],['lime',5]]],
  ['pad_thai_chicken','Pad thai de pollo',[['rice_noodles',130],['pollo',65],['egg_raw',25],['peanuts',10],['soy_sauce',10],['lime',5]]],
  ['paella','Paella de mariscos',[['arroz',130],['shrimp',35],['mussels',30],['peas',20],['tomato',20],['olive_oil',6]]],
- ['chicken_curry','Curry de pollo',[['pollo',100],['curry_rice',100],['milk_whole',30],['onion',15],['olive_oil',5]]],
+ ['chicken_curry','Curry de pollo',[['pollo',100],['arroz',100],['vegetables',45],['milk_whole',30],['onion',15],['olive_oil',5]]],
  ['chicken_wings','Alitas de pollo',[['chicken_thigh',130],['salsa',15],['butter',5]]],
  ['mac_cheese','Macarrones con queso',[['pasta',140],['cheddar',40],['milk_whole',30],['butter',5]]],
  ['spaghetti_bolognese','Espagueti a la boloñesa',[['pasta',150],['ground_beef',65],['tomato',65],['parmesan',8],['olive_oil',4]]],
@@ -532,7 +533,7 @@ const addRecipe=(id,name,items,count=1)=>{RECIPE_CONFIGS[id]={name,label:`Porcio
  ['hamburger','Hamburguesa',[['pan',65],['ground_beef',90],['cheddar',18],['lettuce',8],['tomato',12],['mayonnaise',5]]],
  ['hot_dog','Hot dog',[['pan',55],['sausage',55],['ketchup',8],['mayonnaise',5]]],
  ['pork_ribs','Costillas BBQ',[['pork_chop',110],['ketchup',15],['azucar_morena',5]]],
- ['fish_chips','Pescado con papas',[['pescado',85],['harina_trigo',10],['olive_oil',10],['french_fries',90]]],
+ ['fish_chips','Pescado con papas',[['pescado',85],['harina_trigo',10],['olive_oil',18],['papas',90]]],
  ['fish_and_chips','Pescado con papas',[['pescado',85],['harina_trigo',10],['olive_oil',10],['french_fries',90]]],
  ['caesar_salad','Ensalada César',[['lettuce',100],['pollo',60],['parmesan',12],['mayonnaise',12],['pan',20]]],
  ['greek_salad','Ensalada griega',[['cucumber',35],['tomato',35],['feta',20],['olive_oil',7],['onion',8]]],
@@ -545,7 +546,7 @@ const addRecipe=(id,name,items,count=1)=>{RECIPE_CONFIGS[id]={name,label:`Porcio
  ['miso_soup','Sopa miso',[['tofu',35],['caldo',180],['seaweed',5],['onion',8]]],
  ['clam_chowder','Crema de almeja',[['milk_whole',100],['clam',35],['papas',35],['butter',5],['harina_trigo',8]]],
  ['chowder','Sopa gratinada',[['caldo',150],['onion',50],['mozzarella',20],['pan',25],['butter',5]]],
- ['poutine','Poutine',[['french_fries',120],['cheddar',25],['caldo',30]]],
+ ['poutine','Poutine',[['papas',120],['olive_oil',12],['cheddar',25],['caldo',30]]],
  ['nachos','Nachos',[['tortilla_chips',65],['cheddar',30],['frijoles',30],['pico',15],['salsa',10]]],
  ['pesto_pasta','Pasta al pesto',[['pasta',140],['pesto',25],['parmesan',8]]],
  ['shrimp_cocktail','Cóctel de camarón',[['shrimp',100],['ketchup',30],['tomato',25],['onion',10],['lime',5]]],
@@ -599,7 +600,7 @@ const addRecipe=(id,name,items,count=1)=>{RECIPE_CONFIGS[id]={name,label:`Porcio
  ['bread_pudding','Budín de pan',[['pan',55],['milk_whole',45],['egg_raw',20],['sugar',12]]],
  ['club_sandwich','Sándwich club',[['pan',90],['pollo',50],['bacon',15],['mayonnaise',10],['lettuce',12],['tomato',12]]],
  ['breakfast_burrito','Burrito de desayuno',[['flour_tortilla',60],['huevo',2,'huevos'],['cheddar',20],['papas',35],['sausage',20]]],
- ['pulled_pork_sandwich','Sándwich de cerdo BBQ',[['pan',65],['pork_loin',75],['ketchup',12],['coleslaw',20]]],
+ ['pulled_pork_sandwich','Sándwich de cerdo BBQ',[['pan',65],['pork_loin',75],['ketchup',12],['col',15],['mayonnaise',5],['vinegar',2]]],
  ['ceviche','Ceviche de pescado',[['pescado',120],['tomato',25],['onion',15],['lime',20],['cilantro',3]]],
  ['beet_salad','Ensalada de betabel',[['cooked_beet',120],['feta',20],['olive_oil',5],['lettuce',20]]],
  ['carrot_cake','Pastel de zanahoria',[['harina_trigo',30],['carrot',20],['sugar',20],['butter',12],['cream_cheese',12]]],
@@ -613,7 +614,7 @@ const addRecipe=(id,name,items,count=1)=>{RECIPE_CONFIGS[id]={name,label:`Porcio
  ['stir_fry','Salteado de verduras con pollo',[['pollo',80],['vegetables',130],['soy_sauce',10],['olive_oil',5]]],
  ['lentil_soup','Sopa de lentejas',[['lentils',100],['carrot',20],['onion',15],['caldo',120]]],
  ['tomato_soup','Sopa de tomate',[['tomato',120],['caldo',100],['cream',15],['onion',15]]],
- ['fish_curry','Curry de pescado',[['pescado',100],['curry_rice',100],['milk_whole',20],['onion',10]]],
+ ['fish_curry','Curry de pescado',[['pescado',100],['arroz',100],['vegetables',40],['milk_whole',20],['onion',10],['olive_oil',4]]],
  ['vegetable_curry','Curry de verduras',[['vegetables',140],['milk_whole',30],['arroz',50],['olive_oil',5]]],
  ['chicken_tikka','Pollo tikka masala',[['pollo',100],['yogur',20],['tomato',30],['cream',15],['onion',10]]],
  ['chicken_tikka_masala','Pollo tikka masala',[['pollo',100],['yogur',20],['tomato',30],['cream',15],['onion',10]]],
@@ -655,12 +656,17 @@ const addRecipe=(id,name,items,count=1)=>{RECIPE_CONFIGS[id]={name,label:`Porcio
  ,['macarons','Macarons',[['almonds',12],['sugar',14],['egg_white',8],['sugar',5]]]
  ,['tamale','Tamal',[['masa_tamal',105],['pollo',25],['salsa_verde',20],['manteca',8]]]
  ,['pastel','Pastel sencillo',[['harina_trigo',35],['sugar',22],['egg_raw',15],['butter',15],['milk_whole',10]]]
+ ,['french_fries','Papas fritas',[['papas',150],['olive_oil',14]]]
+ ,['helado','Helado de vainilla',[['milk_whole',45],['cream',35],['sugar',16]]]
+ ,['panna_cotta','Panna cotta',[['cream',75],['milk_whole',15],['sugar',12],['gelatin',2]]]
  ,['coleslaw','Ensalada de col',[['col',75],['carrot',10],['mayonnaise',12],['vinegar',3]]]
 ].forEach(([id,name,items,count])=>addRecipe(id,name,items,count||1));
 delete RECIPE_CONFIGS.huevos;
 delete RECIPE_CONFIGS.fish_and_chips;
 delete RECIPE_CONFIGS.huevos_benedict;
 delete RECIPE_CONFIGS.tamale;
+delete RECIPE_CONFIGS.mussels;
+delete RECIPE_CONFIGS.scallops;
 const PROTEIN_IDS=new Set(['pollo','chicken_raw','chicken_thigh','carne','arrachera','pastor_meat','carnitas_meat','pescado','salmon','cod','camaron','shrimp','huevo','egg_raw','fried_egg','scrambled_egg','egg_white','egg_yolk','tofu','tuna','turkey','beef','pork','protein_powder']);
 const CARB_IDS=new Set(['arroz','rice_dry','white_rice_brown','pasta','pasta_dry','tortilla','flour_tortilla','pan','bread_whole','bagel','avena','oats_dry','quinoa','potato_raw','papas','elote','cereal','pancakes','waffles']);
 const FRUIT_IDS=new Set(['manzana','platano','orange','pear','mango','strawberries','blueberries','grapes','pineapple','watermelon','peach','kiwi','fruit_salad']);
