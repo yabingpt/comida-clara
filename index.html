@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f2f2f0" />
+  <meta name="theme-color" content="#0c0e11" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="AY FUEL" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="description" content="Registro personal de alimentos y macros editables." />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css?v=19" />
+  <link rel="stylesheet" href="styles.css?v=22" />
   <title>AY FUEL</title>
 </head>
 <body>
@@ -19,23 +19,27 @@
       <button id="installButton" class="icon-button" hidden aria-label="Instalar app" title="Instalar">＋</button>
     </header>
 
+    <section class="app-page" id="page-home" data-page="home">
     <section class="hero" id="inicio">
       <p class="eyebrow">TU REGISTRO DE HOY</p>
-      <div class="hero-row"><div><h1>Come con<br /><em>más claridad.</em></h1><p class="subhead">Elige tus alimentos y ajusta cada porción.</p></div><div class="date-pill" id="todayDate"></div></div>
+      <div class="hero-row"><div><h1>AY<br /><em>FUEL</em></h1><p class="subhead">Elige tus alimentos y ajusta cada porción.</p></div><div class="date-pill" id="todayDate"></div></div>
       <div class="daily-card">
         <div class="daily-head"><span>Estimado de hoy</span><span id="mealCount">0 comidas</span></div>
         <div class="daily-cal"><strong id="dailyCalories">0</strong><span>kcal</span></div>
         <div class="macro-strip"><div><span class="macro-dot protein"></span><span>Proteína</span><b id="dailyProtein">0 g</b></div><div><span class="macro-dot carbs"></span><span>Carbohidratos</span><b id="dailyCarbs">0 g</b></div><div><span class="macro-dot fat"></span><span>Grasas</span><b id="dailyFat">0 g</b></div></div>
       </div>
-      <section class="daily-goals" aria-labelledby="dailyGoalsTitle">
-        <div class="daily-goals-heading"><div><strong id="dailyGoalsTitle">Mis objetivos del día</strong><small>Solo como referencia; no se comparan con lo consumido.</small></div><span>🎯</span></div>
-        <div class="daily-goals-grid">
-          <label>Calorías (kcal)<input id="goalCalories" type="number" min="0" step="10" placeholder="kcal" inputmode="numeric" /></label>
-          <label>Proteína (g)<input id="goalProtein" type="number" min="0" step="1" placeholder="g" inputmode="decimal" /></label>
-          <label>Carbohidratos (g)<input id="goalCarbs" type="number" min="0" step="1" placeholder="g" inputmode="decimal" /></label>
-          <label>Grasas (g)<input id="goalFat" type="number" min="0" step="1" placeholder="g" inputmode="decimal" /></label>
-        </div>
-      </section>
+
+</section>
+      <button class="home-add-button" id="goRegister" type="button"><span>＋</span> Agregar comida</button>
+    <section class="history-section" aria-labelledby="historyTitle">
+      <div class="section-heading"><div><p class="eyebrow">TU DÍA</p><h2 id="historyTitle">Comidas de hoy</h2></div><span class="step-mark" id="mealCountHome">Registro personal</span></div>
+      <div id="mealHistory" class="meal-history"></div>
+      <section class="daily-log-actions" aria-label="Guardar o borrar el registro de hoy"><p id="daySaveStatus" aria-live="polite">El registro se conserva en este iPhone; no se borra al cambiar de día.</p><button id="closeDay" type="button" class="save-day-button">Guardar registro de hoy <span>✓</span></button><button id="clearDay" type="button" class="delete-day-button">Borrar registro de hoy</button></section>
+    </section>
+
+    </section>
+    <section class="app-page" id="page-register" data-page="register" hidden>
+      <div class="page-heading"><p class="eyebrow">TU ALIMENTACIÓN</p><h1>Registro</h1><p>Arma cada comida y ajusta los ingredientes.</p></div>
       <div class="protein-log" aria-labelledby="proteinLogTitle">
         <div class="protein-log-heading"><div><strong id="proteinLogTitle">Mi shake de proteína</strong><span>Registro rápido, editable</span></div><span class="protein-badge">24 g / scoop</span></div>
         <div class="protein-log-fields">
@@ -48,8 +52,6 @@
         <p id="proteinLogFeedback" class="protein-log-feedback" aria-live="polite" hidden></p>
         <p class="protein-log-note">Un scoop equivale inicialmente a 24 g de proteína; puedes usar medios scoops. Ajusta los valores con la etiqueta. Si dejas kcal vacío, se estiman desde los macros. Este registro es para el polvo; añade leche o fruta aparte.</p>
       </div>
-    </section>
-
     <section class="food-log-section" aria-labelledby="foodLogTitle">
       <div class="section-heading"><div><p class="eyebrow">REGISTRA LO QUE COMISTE</p><h2 id="foodLogTitle">Arma tu plato</h2></div><span class="step-mark">MANUAL · EDITABLE</span></div>
       <p class="catalog-intro">Busca un ingrediente o plato, añádelo y ajusta su cantidad. Los macros se actualizan por alimento al instante.</p>
@@ -77,13 +79,38 @@
       <p id="analysisStatus" class="status-line" aria-live="polite"><span class="status-dot"></span><span>Busca un plato o ingrediente, o elige uno de tus favoritos.</span></p>
       </section>
     </section>
-    <section class="history-section" aria-labelledby="historyTitle">
-      <div class="section-heading"><div><p class="eyebrow">TU DÍA</p><h2 id="historyTitle">Comidas recientes</h2></div><div><button id="exportExamples" class="text-button small">Exportar mi registro</button><button id="clearDay" class="text-button small">Limpiar día</button></div></div>
-      <div id="mealHistory" class="meal-history"></div>
+
     </section>
-    <footer><span>Estimaciones orientativas, no mediciones exactas.</span><button id="aboutButton" class="text-button small">Cómo funciona</button></footer>
+    <section class="app-page" id="page-stats" data-page="stats" hidden>
+      <div class="page-heading"><p class="eyebrow">TUS TENDENCIAS</p><h1>Estadísticas</h1><p id="statsPeriod">Resumen de tus últimos siete días.</p></div>
+      <div class="stats-summary-grid"><article class="stat-card"><span>Promedio de energía</span><strong id="statsAvgCalories">0</strong><small>kcal por día</small></article><article class="stat-card"><span>Proteína promedio</span><strong id="statsAvgProtein">0</strong><small>g por día</small></article><article class="stat-card"><span>Comidas registradas</span><strong id="statsMealCount">0</strong><small>en siete días</small></article></div>
+      <section class="stats-panel"><div class="panel-heading"><div><p class="eyebrow">ÚLTIMA SEMANA</p><h2>Calorías por día</h2></div><span>kcal</span></div><div id="statsChart" class="stats-chart" role="img" aria-label="Gráfica de calorías por día en los últimos siete días"></div></section>
+      <section class="stats-panel"><div class="panel-heading"><div><p class="eyebrow">PROMEDIOS</p><h2>Macros por día</h2></div></div><div class="stats-macro-grid"><div><span>Proteína</span><b id="statsMacroProtein">0 g</b></div><div><span>Carbohidratos</span><b id="statsMacroCarbs">0 g</b></div><div><span>Grasas</span><b id="statsMacroFat">0 g</b></div></div></section>
+      <p class="stats-note">Las estadísticas se calculan con las comidas guardadas en este iPhone. Los días sin registros cuentan como cero.</p><section class="stats-panel archive-panel"><div class="panel-heading"><div><p class="eyebrow">TU DIARIO</p><h2>Historial guardado</h2></div><span>por fecha</span></div><div id="statsArchive" class="stats-archive"></div></section>
+    </section>
+    <section class="app-page" id="page-profile" data-page="profile" hidden>
+      <div class="profile-heading"><div class="profile-mark">AY</div><div><p class="eyebrow">AY FUEL</p><h1>Perfil</h1><p>Better food. Better days.</p></div></div>
+      <section class="daily-goals" aria-labelledby="dailyGoalsTitle">
+        <div class="daily-goals-heading"><div><strong id="dailyGoalsTitle">Mis objetivos del día</strong><small>Solo como referencia; no se comparan con lo consumido.</small></div><span>🎯</span></div>
+        <div class="daily-goals-grid">
+          <label>Calorías (kcal)<input id="goalCalories" type="number" min="0" step="10" placeholder="kcal" inputmode="numeric" /></label>
+          <label>Proteína (g)<input id="goalProtein" type="number" min="0" step="1" placeholder="g" inputmode="decimal" /></label>
+          <label>Carbohidratos (g)<input id="goalCarbs" type="number" min="0" step="1" placeholder="g" inputmode="decimal" /></label>
+          <label>Grasas (g)<input id="goalFat" type="number" min="0" step="1" placeholder="g" inputmode="decimal" /></label>
+        </div>
+      </section>
+      <section class="profile-note"><span>🔒</span><div><strong>Tu perfil se queda en este iPhone</strong><p>Los objetivos y el registro se guardan en Safari y no se envían a un servidor.</p></div></section>
+      <section class="profile-actions"><h2>Tu información</h2><button id="exportExamples" class="profile-action" type="button"><span>⇩</span><span><b>Exportar mi registro</b><small>Descargar una copia de comidas y objetivos</small></span><span>›</span></button><button id="aboutButton" class="profile-action" type="button"><span>ⓘ</span><span><b>Acerca de AY FUEL</b><small>Fuentes y cómo se estiman los macros</small></span><span>›</span></button></section>
+    <footer><span>Estimaciones orientativas, no mediciones exactas.</span></footer>
+    </section>
+    <nav class="bottom-nav" aria-label="Navegación principal">
+      <button type="button" class="nav-item active" data-nav="home" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><small>Inicio</small></button>
+      <button type="button" class="nav-item" data-nav="register"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l3 3v15H5z"/><path d="M9 3v6l3-2 3 2V3M8 14h8M8 17h8"/></svg><small>Registro</small></button>
+      <button type="button" class="nav-item" data-nav="stats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-8M22 20V8"/><path d="M2 20h21"/></svg><small>Estadísticas</small></button>
+      <button type="button" class="nav-item" data-nav="profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><small>Perfil</small></button>
+    </nav>
   </main>
   <dialog id="aboutDialog"><div class="dialog-content"><button id="closeDialog" class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow">ACERCA DE</p><h2>Estimación, con tus ajustes.</h2><p>AY FUEL no usa cámara ni reconocimiento visual. El catálogo ahora cubre alimentos mexicanos y de otras cocinas. Los platillos compuestos abren una receta guía desglosada: puedes cambiar cantidades por ingrediente, quitar ingredientes o añadir otros. La cantidad inicial es una porción promedio editable, porque cada preparación cambia.</p><p>Las porciones se orientan por grupos y equivalencias del <a href="https://fisiologia.facmed.unam.mx/wp-content/uploads/2019/02/2-Valoraci%C3%B3n-nutricional-Anexos.pdf" target="_blank" rel="noreferrer">SMAE (referencia UNAM)</a>. Para la composición se consultan tablas mexicanas del <a href="https://www.incmnsz.mx/2019/TABLAS_ALIMENTOS.pdf" target="_blank" rel="noreferrer">INCMNSZ</a> y <a href="https://fdc.nal.usda.gov/data-documentation/" target="_blank" rel="noreferrer">USDA FoodData Central</a>; los valores de recetas son cálculos aproximados de sus ingredientes, no valores oficiales universales del platillo. Tus registros se guardan en este navegador.</p><button id="closeDialogAction" class="primary-button">Entendido</button></div></dialog>
-  <script type="module" src="app.js?v=19"></script>
+  <script type="module" src="app.js?v=22"></script>
 </body>
 </html>
