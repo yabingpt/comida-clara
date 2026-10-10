@@ -1,4 +1,4 @@
-# Comida Clara
+# AY FUEL
 
 Registro personal de alimentos y macros, optimizado para iPhone. No necesita cuenta, cámara ni modelos que descargar: el catálogo y los cálculos funcionan en el navegador. Los registros se guardan localmente en el dispositivo.
 
@@ -28,7 +28,7 @@ Las porciones caseras se orientan con equivalencias del [SMAE](https://fisiologi
 - Si varias personas usan el mismo iPhone y el mismo perfil de Safari, compartirán ese almacenamiento local.
 - Safari conserva los datos del sitio entre visitas; al borrar los datos del sitio también se borrará el diario. Puedes exportarlo antes.
 
-Abre [Comida Clara](https://yabingpt.github.io/comida-clara/) en Safari. Para tenerla como icono, usa **Compartir → Agregar a pantalla de inicio**. Después de cargar la app una vez, sus archivos principales quedan en caché para ayudar a abrirla sin conexión; Safari puede borrar la caché cuando libera espacio. Los datos nutricionales y el diario siguen disponibles en ese navegador.
+Abre [AY FUEL](https://yabingpt.github.io/comida-clara/) en Safari. Para tenerla como icono, usa **Compartir → Agregar a pantalla de inicio**. Después de cargar la app una vez, sus archivos principales quedan en caché para ayudar a abrirla sin conexión; Safari puede borrar la caché cuando libera espacio. Los datos nutricionales y el diario siguen disponibles en ese navegador.
 
 ## Archivos
 
