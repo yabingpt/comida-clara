@@ -7,15 +7,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="AY FUEL" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="description" content="Registro personal de alimentos y macros editables." />  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png" />  <link rel="stylesheet" href="styles.css?v=29" />
+  <meta name="description" content="Registro personal de alimentos y macros editables." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css?v=24" />
   <title>AY FUEL</title>
 </head>
 <body>
   <main class="shell">
     <header class="topbar">
-      <a class="brand" href="#inicio" aria-label="AY FUEL, inicio"><span class="brand-icon" aria-hidden="true">F</span><span>AY FUEL</span></a>
+      <a class="brand" href="#inicio" aria-label="AY FUEL, inicio"><span class="brand-icon">AY</span><span>AY FUEL</span></a>
       <button id="installButton" class="icon-button" hidden aria-label="Instalar app" title="Instalar">＋</button>
     </header>
 
@@ -65,17 +65,17 @@
       <div class="catalog-heading"><span>Tu colección</span><span id="catalogCount"></span></div>
       <div id="foodViews" class="food-views" role="group" aria-label="Vista del catálogo"></div>
       <div id="foodBrowser" class="food-browser"></div>
-      <details class="custom-food-panel"><summary>🏷️ ¿Falta algo? Añade un alimento desde su etiqueta</summary><form id="customFoodForm" class="custom-food-form"><label>Nombre<input id="customFoodName" type="text" maxlength="70" placeholder="Ej. Yogur marca X" required /></label><label>Gramos por porción<input id="customFoodServing" type="number" min="1" step="1" placeholder="170" required inputmode="decimal" /></label><label>Calorías por porción<input id="customFoodKcal" type="number" min="0" step="0.1" required inputmode="decimal" /></label><label>Proteína (g)<input id="customFoodProtein" type="number" min="0" step="0.1" required inputmode="decimal" /></label><label>Carbohidratos (g)<input id="customFoodCarbs" type="number" min="0" step="0.1" required inputmode="decimal" /></label><label>Grasa (g)<input id="customFoodFat" type="number" min="0" step="0.1" required inputmode="decimal" /></label><button class="custom-food-add primary-button" type="submit">Guardar y añadir alimento <span>＋</span></button></form><p id="customFoodFeedback" class="custom-food-feedback" hidden></p><small>Escribe los valores de una porción de la etiqueta y su peso. Se convierten automáticamente a valores por 100 g y quedan guardados solo en este navegador.</small></details>
+      <details class="custom-food-panel"><summary>🏷️ ¿Falta algo? Busca un producto o añádelo desde su etiqueta</summary><div class="product-lookup"><label for="productBarcode">Código de barras (EAN/UPC)</label><div><input id="productBarcode" type="text" inputmode="numeric" autocomplete="off" maxlength="14" placeholder="Escribe el código"/><button id="lookupBarcode" type="button" class="secondary-button">Buscar producto</button></div><p id="productLookupStatus" aria-live="polite"></p></div><form id="customFoodForm" class="custom-food-form"><label>Nombre del producto<input id="customFoodName" type="text" maxlength="100" placeholder="Ej. Yogur natural" required /></label><label>Marca<input id="customFoodBrand" type="text" maxlength="70" placeholder="Opcional" /></label><label id="customFoodServingLabel">Gramos por porción<input id="customFoodServing" type="number" min="0.1" step="0.1" placeholder="170" required inputmode="decimal" /></label><label>Calorías por porción<input id="customFoodKcal" type="number" min="0" step="0.1" required inputmode="decimal" /></label><label>Proteína (g)<input id="customFoodProtein" type="number" min="0" step="0.1" required inputmode="decimal" /></label><label>Carbohidratos (g)<input id="customFoodCarbs" type="number" min="0" step="0.1" required inputmode="decimal" /></label><label>Grasa (g)<input id="customFoodFat" type="number" min="0" step="0.1" required inputmode="decimal" /></label><label>Fibra (g), si aparece<input id="customFoodFiber" type="number" min="0" step="0.1" inputmode="decimal" /></label><label>Azúcares (g), si aparecen<input id="customFoodSugars" type="number" min="0" step="0.1" inputmode="decimal" /></label><label>Grasa saturada (g), si aparece<input id="customFoodSatFat" type="number" min="0" step="0.1" inputmode="decimal" /></label><label>Sodio (mg), si aparece<input id="customFoodSodium" type="number" min="0" step="1" inputmode="numeric" /></label><button class="custom-food-add primary-button" type="submit">Guardar y añadir alimento <span>＋</span></button></form><p id="customFoodFeedback" class="custom-food-feedback" hidden></p><small>La búsqueda por código consulta Open Food Facts, una base comunitaria; confirma los datos con el empaque. Si falta información, captura la etiqueta. Los datos se guardan solo en este navegador.</small></details>
       <section class="draft-meal" aria-labelledby="draftTitle">
         <div class="draft-heading"><div><p class="eyebrow">DESGLOSE</p><h3 id="draftTitle">Tu comida <span id="mealTypeLabel">· Desayuno</span></h3></div><button id="clearDraft" type="button" class="text-button small">Vaciar</button></div>
         <div id="foodItems" class="food-items"></div>
         <div class="nutrition-card">
           <div class="nutrition-top"><span>Total de esta comida</span><span class="approx">≈</span></div>
           <div class="meal-cal"><strong id="mealCalories">0</strong><span>kcal</span></div>
-          <div class="nutrition-macros"><div><span>Proteína</span><b id="mealProtein">0 g</b></div><div><span>Carbohidratos</span><b id="mealCarbs">0 g</b></div><div><span>Grasas</span><b id="mealFat">0 g</b></div></div>
+          <div class="nutrition-macros"><div><span>Proteína</span><b id="mealProtein">0 g</b></div><div><span>Carbohidratos</span><b id="mealCarbs">0 g</b></div><div><span>Grasas</span><b id="mealFat">0 g</b></div></div><small id="mealMicros" class="optional-nutrients" hidden></small>
         </div>
         <p class="estimate-caveat"><span>✳</span><span>Los macros son por ingrediente y porción. Elige el estado correcto (crudo o cocido) y ajusta gramos o piezas; aceite, salsas y marcas cambian el resultado.</span></p>
-        <button id="saveMeal" class="primary-button" type="button" disabled>Guardar comida en mi día <span>→</span></button>
+        <div class="draft-actions"><button id="saveMeal" class="primary-button" type="button" disabled>Guardar comida en mi día <span>→</span></button><button id="saveRecipe" class="secondary-button" type="button" disabled>Guardar como receta</button></div>
       <p id="analysisStatus" class="status-line" aria-live="polite"><span class="status-dot"></span><span>Busca un plato o ingrediente, o elige uno de tus favoritos.</span></p>
       </section>
     </section>
@@ -101,7 +101,7 @@
         </div>
       </section>
       <section class="profile-note"><span>🔒</span><div><strong>Tu perfil se queda en este iPhone</strong><p>Los objetivos y el registro se guardan en Safari y no se envían a un servidor.</p></div></section>
-      <section class="profile-actions"><h2>Tu información</h2><button id="exportExamples" class="profile-action" type="button"><span>⇩</span><span><b>Exportar mi registro</b><small>Descargar una copia de comidas y objetivos</small></span><span>›</span></button><button id="aboutButton" class="profile-action" type="button"><span>ⓘ</span><span><b>Acerca de AY FUEL</b><small>Fuentes y cómo se estiman los macros</small></span><span>›</span></button></section>
+      <section class="profile-actions"><h2>Tu información</h2><button id="exportExamples" class="profile-action" type="button"><span>⇩</span><span><b>Exportar copia completa</b><small>Historial, favoritos, alimentos, recetas y objetivos</small></span><span>›</span></button><label for="importBackupFile" class="profile-action profile-import"><span>⇧</span><span><b>Importar copia de AY FUEL</b><small>Combina datos y conserva los conflictos locales</small></span><span>›</span></label><input id="importBackupFile" type="file" accept="application/json,.json" hidden /><p id="backupStatus" class="backup-status" aria-live="polite"></p><button id="aboutButton" class="profile-action" type="button"><span>ⓘ</span><span><b>Acerca de AY FUEL</b><small>Fuentes y cómo se estiman los macros</small></span><span>›</span></button></section>
     <footer><span>Estimaciones orientativas, no mediciones exactas.</span></footer>
     </section>
     <nav class="bottom-nav" aria-label="Navegación principal">
@@ -112,6 +112,6 @@
     </nav>
   </main>
   <dialog id="aboutDialog"><div class="dialog-content"><button id="closeDialog" class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow">ACERCA DE</p><h2>Estimación, con tus ajustes.</h2><p>AY FUEL no usa cámara ni reconocimiento visual. El catálogo incluye 467 alimentos adicionales: ingredientes, restaurantes, cadenas, bebidas, postres y porciones individuales; busca, por ejemplo, hamburguesas Burger King, rebanadas de pizza, tarta vasca o bao de cerdo agridulce. Los platillos compuestos con receta guía abren un desglose editable por ingrediente. Las recetas y porciones son estimaciones ajustables, porque cada preparación y tamaño cambian.</p><p>Las porciones se orientan por grupos y equivalencias del <a href="https://fisiologia.facmed.unam.mx/wp-content/uploads/2019/02/2-Valoraci%C3%B3n-nutricional-Anexos.pdf" target="_blank" rel="noreferrer">SMAE (referencia UNAM)</a>. Para la composición se consultan tablas mexicanas del <a href="https://www.incmnsz.mx/2019/TABLAS_ALIMENTOS.pdf" target="_blank" rel="noreferrer">INCMNSZ</a> y <a href="https://fdc.nal.usda.gov/data-documentation/" target="_blank" rel="noreferrer">USDA FoodData Central</a>; los valores de recetas son cálculos aproximados de sus ingredientes, no valores oficiales universales del platillo. Tus registros se guardan en este navegador.</p><button id="closeDialogAction" class="primary-button">Entendido</button></div></dialog>
-  <script type="module" src="app.js?v=27"></script>
+  <script type="module" src="app.js?v=28"></script>
 </body>
 </html>
