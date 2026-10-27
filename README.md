@@ -10,7 +10,7 @@ Registro personal de alimentos y macros, optimizado para iPhone. No necesita cue
 4. Ajusta huevos, claras, piezas, tazas u otras unidades cuando estén disponibles, o corrige directamente los gramos.
 5. Revisa calorías, proteína, carbohidratos y grasa por ingrediente y en el total. Después guarda la comida.
 
-La app se divide en Inicio, Registro, Metas y Perfil. En Perfil puedes guardar objetivos de calorías y macros; en Metas ves tu avance diario, el promedio de la semana y cuántos días quedaste cerca de tus objetivos. El catálogo se amplió con **467 alimentos nuevos**: ingredientes, preparaciones regionales e internacionales, productos de restaurantes y cadenas, bebidas, postres y porciones individuales. Incluye hamburguesas Burger King, rebanadas de pizza, tarta vasca, bao de cerdo agridulce y más. Los platillos compuestos que tienen receta guía abren un desglose editable por ingrediente; las porciones individuales se pueden ajustar en gramos.
+La app se divide en Inicio, Registro, Metas y Perfil. En Perfil puedes guardar objetivos de calorías y macros; en Metas ves tu avance diario, el promedio de la semana y cuántos días quedaste cerca de tus objetivos. El catálogo se amplió con **509 alimentos nuevos**: ingredientes, preparaciones regionales e internacionales, productos de restaurantes y cadenas, bebidas, postres y porciones individuales. Incluye aceites de girasol, canola, maíz, soya y coco, productos típicos de mercado mexicano y bebidas de marca con etiqueta oficial, además de hamburguesas Burger King, rebanadas de pizza, tarta vasca, bao de cerdo agridulce y más. Los platillos compuestos que tienen receta guía abren un desglose editable por ingrediente; las porciones individuales se pueden ajustar en gramos.
 
 Las preparaciones completas que se benefician de ajustar ingredientes abren plantillas editables —por ejemplo tacos, enchiladas, guisos, bowls y ensaladas— para corregir cantidades, agregar o quitar componentes y guardar el desglose. Las porciones individuales listas para comer, como productos de cadenas, rebanadas de pizza, postres, piezas de pan y bebidas, se registran como una sola entrada con sus macros y calorías; su cantidad se puede ajustar en gramos o unidades. Las recetas guía son estimaciones: ajusta aceite, salsas, rellenos y cantidades a lo que comiste. El catálogo añade ingredientes mexicanos como masa, chiles, tomatillo, chorizo, barbacoa, quesos y verduras. El shake permite anotar scoops completos o medios, proteína por scoop y los macros de la etiqueta. El diario agrupa comidas con su tipo y emoji, y permite desplegar los macros de cada ingrediente. En Inicio puedes marcar el registro de hoy como guardado o borrarlo manualmente; los días anteriores se conservan y aparecen en Metas. Al cambiar de fecha, el registro no se elimina. **Exportar copia completa** guarda historial con sus macros históricos, favoritos, productos propios, recetas, metas, preferencias y cierres diarios. Importar combina los datos, conserva lo que ya existe cuando hay conflictos, valida el archivo y descarga una copia previa antes de escribir.
 
@@ -38,3 +38,10 @@ Abre [AY FUEL](https://yabingpt.github.io/comida-clara/) en Safari. Para tenerla
 - tests/data-safety.test.mjs: pruebas de importación y protección de conflictos.
 - styles.css: diseño adaptable a móvil.
 - manifest.webmanifest y sw.js: instalación PWA y caché sin conexión.
+
+## Verificación
+
+Con Node.js disponible, ejecuta 
+ode --check app.js, 
+ode --check data-safety.mjs y 
+ode --test tests/*.test.mjs. Las pruebas validan formatos de respaldo, conflictos de importación, cálculos con cantidades decimales, IDs únicos, referencias de recetas y conteos auditados del catálogo.
