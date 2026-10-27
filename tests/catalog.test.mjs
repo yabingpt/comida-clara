@@ -16,18 +16,19 @@ function loadCatalog() {
 
 test('keeps the expanded catalog unique by ID and all recipe references available', () => {
   const { foods, recipes } = loadCatalog();
-  assert.equal(foods.length, 846);
-  assert.equal(foods.filter(food => food.id.startsWith('ayf_')).length, 467);
+  assert.equal(foods.length, 888);
+  assert.equal(foods.filter(food => food.id.startsWith('ayf_')).length, 509);
   assert.equal(new Set(foods.map(food => food.id)).size, foods.length);
+  for (const id of ['ayf_sunflower_oil', 'ayf_canola_oil', 'ayf_corn_oil', 'ayf_nopal_raw_market', 'ayf_huitlacoche_fresh', 'ayf_coca_cola_mex']) assert.ok(foods.some(food => food.id === id), 'missing '+id);
   const foodIds = new Set(foods.map(food => food.id));
-  const missing = Object.entries(recipes).flatMap(([id, recipe]) => recipe.ingredients.filter(([foodId]) => !foodIds.has(foodId)).map(([foodId]) => id + ': ' + foodId));
+  const missing = Object.entries(recipes).flatMap(([id, recipe]) => recipe.ingredients.filter(([foodId]) => !foodIds.has(foodId)).map(([foodId]) => id+': '+foodId));
   assert.deepEqual(missing, []);
 });
 
 test('retains broad ingredient coverage and 45 chain menu references', () => {
   const { foods, ingredients, restaurants } = loadCatalog();
   const foodIds = new Set(foods.map(food => food.id));
-  const acceptedIngredientCount = new Set(ingredients.map(([id]) => 'ayf_' + id).filter(id => foodIds.has(id))).size;
+  const acceptedIngredientCount = new Set(ingredients.map(([id]) => 'ayf_'+id).filter(id => foodIds.has(id))).size;
   assert.equal(acceptedIngredientCount, 176);
   assert.equal(restaurants.length, 45);
 });
